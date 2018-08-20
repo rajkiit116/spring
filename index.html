@@ -227,6 +227,10 @@
 	<a href="https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/">https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/</a></br>
 	<a href="https://www.geeksforgeeks.org/design-parking-lot-using-object-oriented-principles/">https://www.geeksforgeeks.org/design-parking-lot-using-object-oriented-principles/</a></br>
 <a href="https://www.javacodegeeks.com/2017/10/call-asynchronous-rest.html">https://www.javacodegeeks.com/2017/10/call-asynchronous-rest.html</a></br>
+<a href="https://stackoverflow.com/questions/15855321/performace-of-bigdecimal-vs-biginteger-and-bigdecimal">https://stackoverflow.com/questions/15855321/performace-of-bigdecimal-vs-biginteger-and-bigdecimal</a></br>
+	<a href="https://www.quora.com/What-is-the-difference-between-depth-first-search-and-breadth-first-search-Why-does-DFS-visit-the-node-after-removal-from-a-stack-while-BFS-visits-the-node-before-adding-it-to-the-queue">https://www.quora.com/What-is-the-difference-between-depth-first-search-and-breadth-first-search-Why-does-DFS-visit-the-node-after-removal-from-a-stack-while-BFS-visits-the-node-before-adding-it-to-the-queue</a></br>
+
+
 
 
 
@@ -266,6 +270,17 @@ SQL
 6)Explain about agile practice in ur team
 
 	<div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-4Ccd0d0Wddad2yC1-3.gif' border='0' alt='conter12'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=4Ccd0d0Wddad2yC1'></script></div>
+
+
+
+	<p>package com.amcat;</p>
+	<p>import java.text.NumberFormat;<br />import java.util.Locale;</p>
+	<p>public class NumbersTOWord {</p>
+	<p>public static String numToWord(Integer i) {</p>
+	<p>final String[] units = { "Zero", "One", "Two", "Three",<br />"Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",<br />"Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",<br />"Seventeen", "Eighteen", "Nineteen" };<br />final String[] tens = { "", "", "Twenty", "Thirty", "Forty",<br />"Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };<br /><br />if (i &lt; 20)<br />return units[i];<br />if (i &lt; 100)<br />return tens[i / 10] + ((i % 10 &gt; 0) ? " " + numToWord(i % 10) : "");<br />if (i &lt; 1000)<br />return units[i / 100] + " Hundred"<br />+ ((i % 100 &gt; 0) ? " and " + numToWord(i % 100) : "");<br />if (i &lt; 1000000)<br />return numToWord(i / 1000) + " Thousand "<br />+ ((i % 1000 &gt; 0) ? " " + numToWord(i % 1000) : "");<br />return numToWord(i / 1000000) + " Million "<br />+ ((i % 1000000 &gt; 0) ? " " + numToWord(i % 1000000) : "");<br />}<br />public static void main(String[] args) {</p>
+	<p>System.out.println(numToWord(101));<br /><br />}</p>
+	<p>&nbsp;</p>
+	<p>}</p>
 
 <div id="footer">
 	
