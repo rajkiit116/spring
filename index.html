@@ -205,8 +205,19 @@
 	<a href="https://www.quora.com/What-is-the-difference-between-a-database-and-a-repository/answer/Karthika-80?share=d7946f60&srid=uwiRf">https://www.quora.com/What-is-the-difference-between-a-database-and-a-repository/answer/Karthika-80?share=d7946f60&srid=uwiRf</a></br>
 	<a href=""></a></br>
 	<a href=""></a></br>
+	
 	<a href=""></a></br>
 	<a href=""></a></br>
+	<a href=""></a></br>
+	<a href=""></a></br>
+	<a href=""></a></br>
+	<a href=""></a></br>
+	<a href=""></a></br>
+	<a href=""></a></br>
+	<a href=""></a></br>
+	
+	<a href=""></a></br>	<a href=""></a></br>
+
 	
 
 
@@ -226,12 +237,12 @@
 	<a href="http://www.java67.com/2013/07/15-java-enum-interview-questions-amswers-for-experienced-programmers.html">http://www.java67.com/2013/07/15-java-enum-interview-questions-amswers-for-experienced-programmers.html</a></br>
 	<a href="https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/">https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/</a></br>
 	<a href="https://www.geeksforgeeks.org/design-parking-lot-using-object-oriented-principles/">https://www.geeksforgeeks.org/design-parking-lot-using-object-oriented-principles/</a></br>
-<a href="https://www.javacodegeeks.com/2017/10/call-asynchronous-rest.html">https://www.javacodegeeks.com/2017/10/call-asynchronous-rest.html</a></br>
-<a href="https://stackoverflow.com/questions/15855321/performace-of-bigdecimal-vs-biginteger-and-bigdecimal">https://stackoverflow.com/questions/15855321/performace-of-bigdecimal-vs-biginteger-and-bigdecimal</a></br>
+	<a href="https://www.javacodegeeks.com/2017/10/call-asynchronous-rest.html">https://www.javacodegeeks.com/2017/10/call-asynchronous-rest.html</a></br>
+	<a href="https://stackoverflow.com/questions/15855321/performace-of-bigdecimal-vs-biginteger-and-bigdecimal">https://stackoverflow.com/questions/15855321/performace-of-bigdecimal-vs-biginteger-and-bigdecimal</a></br>
 	<a href="https://www.quora.com/What-is-the-difference-between-depth-first-search-and-breadth-first-search-Why-does-DFS-visit-the-node-after-removal-from-a-stack-while-BFS-visits-the-node-before-adding-it-to-the-queue">https://www.quora.com/What-is-the-difference-between-depth-first-search-and-breadth-first-search-Why-does-DFS-visit-the-node-after-removal-from-a-stack-while-BFS-visits-the-node-before-adding-it-to-the-queue</a></br>
-
-
-
+	<a href="https://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/">https://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/</a></br>
+	<a href="https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/">https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/</a></br>
+	<a href="https://www.instantssl.com/https-tutorials/what-is-https.html">https://www.instantssl.com/https-tutorials/what-is-https.html</a></br>
 
 
 
@@ -281,6 +292,21 @@ SQL
 	<p>System.out.println(numToWord(101));<br /><br />}</p>
 	<p>&nbsp;</p>
 	<p>}</p>
+	<p>package com.amcat;</p>
+<p>public class Balancedparanthesis {<br />static class stack {<br />int top = -1;<br />char items[] = new char[100];</p>
+<p>void push(char x) {<br />if (top == 99) {<br />System.out.println("Stack full");<br />} else {<br />items[++top] = x;<br />}<br />}</p>
+<p>char pop() {<br />if (top == -1) {<br />System.out.println("Underflow error");<br />return '\0';<br />} else {<br />char element = items[top];<br />top--;<br />return element;<br />}<br />}</p>
+<p>boolean isEmpty() {<br />return (top == -1) ? true : false;<br />}<br />}</p>
+<p>static boolean isMatchingPair(char character1, char character2) {<br />if (character1 == '(' &amp;&amp; character2 == ')')<br />return true;<br />else if (character1 == '{' &amp;&amp; character2 == '}')<br />return true;<br />else if (character1 == '[' &amp;&amp; character2 == ']')<br />return true;<br />else<br />return false;<br />}</p>
+<p>/*<br />* Return true if expression has balanced Parenthesis<br />*/<br />static boolean areParenthesisBalanced(char exp[]) {</p>
+<p>stack st = new stack();</p>
+<p>for (int i = 0; i &lt; exp.length; i++) {</p>
+<p>if (exp[i] == '{' || exp[i] == '(' || exp[i] == '[')<br />st.push(exp[i]);<br />if (exp[i] == '}' || exp[i] == ')' || exp[i] == ']') {<br />if (st.isEmpty()) {<br />return false;<br />}</p>
+<p>else if (!isMatchingPair(st.pop(), exp[i])) {<br />return false;<br />}<br />}</p>
+<p>}</p>
+<p>if (st.isEmpty())<br />return true; /* balanced */<br />else { /* not balanced */<br />return false;<br />}<br />}</p>
+<p>public static void main(String[] args) {<br />char exp[] = { '{', '(', ')', '}', '[', ']' };<br />if (areParenthesisBalanced(exp))<br />System.out.println("Balanced ");<br />else<br />System.out.println("Not Balanced ");<br />}</p>
+<p>}</p>
 
 <div id="footer">
 	
