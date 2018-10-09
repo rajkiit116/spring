@@ -395,6 +395,247 @@ tomcat security
 <p>public static void main(String[] args) {<br />char exp[] = { '{', '(', ')', '}', '[', ']' };<br />if (areParenthesisBalanced(exp))<br />System.out.println("Balanced ");<br />else<br />System.out.println("Not Balanced ");<br />}</p>
 <p>}</p>
 
+package graph;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Random;
+
+class TSTNode {
+	char data;
+	boolean isEnd;
+	TSTNode left, middle, right;
+
+	public TSTNode(char data) {
+		this.data = data;
+		this.isEnd = false;
+		this.left = null;
+		this.middle = null;
+		this.right = null;
+	}
+}
+
+class TernarySearchTree {
+	private TSTNode root;
+	private ArrayList<String> al;
+
+	public TernarySearchTree() {
+		root = null;
+	}
+
+	public boolean isEmpty() {
+		return root == null;
+	}
+
+	public void makeEmpty() {
+		root = null;
+	}
+
+	public void insert(String word) {
+		root = insert(root, word.toCharArray(), 0);
+	}
+
+	public TSTNode insert(TSTNode r, char[] word, int ptr) {
+		if (r == null)
+			r = new TSTNode(word[ptr]);
+
+		if (word[ptr] < r.data)
+			r.left = insert(r.left, word, ptr);
+		else if (word[ptr] > r.data)
+			r.right = insert(r.right, word, ptr);
+		else {
+			if (ptr + 1 < word.length)
+				r.middle = insert(r.middle, word, ptr + 1);
+			else
+				r.isEnd = true;
+		}
+		return r;
+	}
+
+	public boolean search(String word) {
+		return search(root, word.toCharArray(), 0);
+	}
+
+	private boolean search(TSTNode r, char[] word, int ptr) {
+		if (r == null)
+			return false;
+
+		if (word[ptr] < r.data)
+			return search(r.left, word, ptr);
+		else if (word[ptr] > r.data)
+			return search(r.right, word, ptr);
+		else {
+			if (r.isEnd && ptr == word.length - 1)
+				return true;
+			else if (ptr == word.length - 1)
+				return false;
+			else
+				return search(r.middle, word, ptr + 1);
+		}
+	}
+
+	public String toString() {
+		al = new ArrayList<String>();
+		traverse(root, "");
+		return "\nTernary Search Tree : " + al;
+	}
+
+	private void traverse(TSTNode r, String str) {
+		if (r != null) {
+			traverse(r.left, str);
+
+			str = str + r.data;
+			if (r.isEnd)
+				al.add(str);
+
+			traverse(r.middle, str);
+			str = str.substring(0, str.length() - 1);
+
+			traverse(r.right, str);
+		}
+	}
+
+    int getLeafCount()  
+    { 
+        return getLeafCount(root); 
+    } 
+   
+    int getLeafCount(TSTNode node)  
+    { 
+        if (node == null) 
+            return 0; 
+        if (node.left == null && node.middle==null && node.right == null ) 
+            return 1; 
+        else
+            return getLeafCount(node.left) +getLeafCount(node.middle)+ getLeafCount(node.right); 
+    } 
+}
+
+public class TernarySearchTreeTest {
+	private static String getRandomString() {
+		int leftLimit = 97; // letter 'a'
+		int rightLimit = 122; // letter 'z'
+		int targetStringLength = 3;
+		Random random = new Random();
+		StringBuilder buffer = new StringBuilder(targetStringLength);
+		for (int i = 0; i < targetStringLength; i++) {
+			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+			buffer.append((char) randomLimitedInt);
+		}
+		String generatedString = buffer.toString();
+		return generatedString;
+	}
+
+	public static void main(String[] args) {
+		TernarySearchTree tst = new TernarySearchTree();
+		Scanner sc = new Scanner(System.in);
+		int noOfTests = sc.nextInt();
+		while (noOfTests > 0) {
+			int noOfTree = sc.nextInt();
+			while (noOfTree > 0) {
+				tst.insert(getRandomString());
+				noOfTree--;
+			}
+			noOfTests--;
+		}
+		
+		System.out.println("No of Leaf count : "+tst.getLeafCount()*3);
+		
+
+	}
+
+}
+
+		package graph;
+
+class Node  
+{ 
+    int data; 
+    Node left, right; 
+   
+    public Node(int item)  
+    { 
+        data = item; 
+        left = right = null; 
+    } 
+} 
+   
+public class BinaryTreeWithLeaf  
+{ 
+    Node root; 
+       
+    int getLeafCount()  
+    { 
+        return getLeafCount(root); 
+    } 
+   
+    int getLeafCount(Node node)  
+    { 
+        if (node == null) 
+            return 0; 
+        if (node.left == null && node.right == null) 
+            return 1; 
+        else
+            return getLeafCount(node.left) + getLeafCount(node.right); 
+    } 
+   
+    public static void main(String args[])  
+    { 
+    	BinaryTreeWithLeaf tree = new BinaryTreeWithLeaf(); 
+        tree.root = new Node(1); 
+        tree.root.left = new Node(2); 
+        tree.root.right = new Node(3); 
+        tree.root.left.left = new Node(4); 
+        tree.root.left.right = new Node(5); 
+           
+        System.out.println("The leaf count of binary tree is : " 
+                             + tree.getLeafCount()); 
+    } 
+} 
+		
+		package graph;
+
+import java.util.Random;
+
+public class TernaryLeafCount {
+	TSTNode root;
+	
+    int getLeafCount()  
+    { 
+        return getLeafCount(root); 
+    } 
+   
+    int getLeafCount(TSTNode node)  
+    { 
+        if (node == null) 
+            return 0; 
+        if (node.left == null && node.middle==null && node.right == null ) 
+            return 1; 
+        else
+            return getLeafCount(node.left) +getLeafCount(node.middle)+ getLeafCount(node.right); 
+    } 
+
+
+    
+	public static void main(String args[]) {
+		TernaryLeafCount tree = new TernaryLeafCount();
+		tree.root=new TSTNode('a');
+		tree.root.left=new TSTNode('b');
+		tree.root.middle=new TSTNode('c');
+		tree.root.right=new TSTNode('d');
+		tree.root.left.left=new TSTNode('e');
+		tree.root.left.middle=new TSTNode('f');
+		tree.root.left.right=new TSTNode('g');
+;
+
+		System.out.println("The leaf count of binary tree is : " + tree.getLeafCount()*3);
+	}
+
+
+
+}
+
+
 <div id="footer">
 	
 </div>
